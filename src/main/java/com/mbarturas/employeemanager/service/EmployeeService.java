@@ -1,5 +1,6 @@
 package com.mbarturas.employeemanager.service;
 
+import com.mbarturas.employeemanager.exception.UserNotFoundException;
 import com.mbarturas.employeemanager.model.Employee;
 import com.mbarturas.employeemanager.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class EmployeeService {
 
     public Employee findEmployeeById(Long id) {
         return employeeRepo.findEmployeeById(id).
-                orElseThrow(() -> new UserNotFoundException ("User by id " + id + " was not find"));
+                orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not find"));
     }
 
     public void deleteEmployee(Long id) {
